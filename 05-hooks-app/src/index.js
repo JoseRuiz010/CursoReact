@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import SimpleForm from "./Components/02-useEffect/SimpleForm";
+import MultipleCustomH from "./Components/03-Ejemplo/MultipleCustomH";
 
-import HookApp from "./HookApp";
+import FormHook from "./Components/02-useEffect/FormHook";
 
 ReactDOM.render(
-  <SimpleForm />,
+  <MultipleCustomH />,
 
   document.getElementById("root")
 );

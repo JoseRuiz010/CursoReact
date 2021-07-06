@@ -10,6 +10,9 @@ export default function SimpleForm() {
     const {name,email}=formState;
     useEffect(() => {
      //   console.log('Hey');
+     
+
+
     },[])
     useEffect(() => {
         //   console.log('Hey');
@@ -27,7 +30,7 @@ export default function SimpleForm() {
        e.preventDefault();
        
        setformState({...formState, [target.name]:target.value})
-       console.log( formState);
+       console.log(formState);
    }
     return (
         <>

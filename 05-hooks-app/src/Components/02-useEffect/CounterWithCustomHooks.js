@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useCounter from "../Hooks/useCounter";
+import useCounter from "../../Hooks/useCounter";
 import './01-useState/counter.css'
 export default function CounterWithCustomHooks() {
   
