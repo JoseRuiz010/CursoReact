@@ -2,10 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import MultipleCustomH from "./Components/03-Ejemplo/MultipleCustomH";
 
-import Memorize from "./Components/06-memo/Memorize";
+import MemoHook from "./Components/06-memo/MemoHook";
 
 ReactDOM.render(
-  <Memorize />,
+  <MemoHook />,
 
   document.getElementById("root")
 );
