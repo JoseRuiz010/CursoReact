@@ -2,10 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import MultipleCustomH from "./Components/03-Ejemplo/MultipleCustomH";
 
-import FocusScreen from "./Components/04-useRef/FocusScreen";
+import Memorize from "./Components/06-memo/Memorize";
 
 ReactDOM.render(
-  <FocusScreen />,
+  <Memorize />,
 
   document.getElementById("root")
 );
