@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import  { useEffect, useRef, useState } from "react";
 import "../Components/02-useEffect/efect.css";
 export const useFetch = (url) => {
   const [state, setstate] = useState({
