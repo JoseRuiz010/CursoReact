@@ -4,12 +4,13 @@ const initialState=[
     {
         id:1,
         todo:'Comprar pan',
-        done:false
+        done:false    
+    
     }
 ]
 const todoReducer =(state=initialState, action)=>{
 
-    if(action?.type=='add'){
+    if(action?.type==='add'){
         return [...state,action.payload]
     }
 
