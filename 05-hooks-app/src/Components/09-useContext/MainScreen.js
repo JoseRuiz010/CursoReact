@@ -1,10 +1,10 @@
 import React from "react";
+import { AppRouter } from "./AppRouter";
+
 
 export const MainScreen = () => {
   return (
-    <div>
-      <h1>MainApp</h1>
-      <hr />
-    </div>
+   
+      <AppRouter></AppRouter>
   );
 };
