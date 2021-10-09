@@ -1,0 +1,68 @@
+.note__main-content{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+   
+}
+.notes__navbar{
+    align-items: center;
+    background-color: $primary;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 10px, 20px,10px,20px;
+}
+ 
+.note__content { 
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    height: 100%;
+     
+}
+.note__content form{
+display: flex;
+flex-direction: column;
+}
+
+.note__title,.note__textArea{
+    border:none;
+
+
+    &:focus{
+        outline: none;
+    }
+}
+
+.note__title{
+    color: $dark-grey;
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  
+}
+.note__title{
+    color: $dark-grey;
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.note__textArea{
+    border: 1px solid black;
+    color: $dark-grey;
+    font-size: 20px;
+    flex: 1 1 auto;  
+    resize: none;
+}
+.note__image  {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  
+}
+.note__image img{
+    
+    box-shadow: 5px 5px $dark-grey;
+    height: 250px;
+    margin: 20px;
+}
