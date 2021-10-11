@@ -1,22 +1,38 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { UseForm } from "../../customHooks/UseForm";
 
 export const Login = () => {
+  const [form,hanndleForm,reset]=UseForm({
+    email:'jose@gmail.com',
+    password:'12345'
+  });
+
+  const {email,password}=form;
+
+  const handleLogin=(e)=>{
+    e.preventDefault();
+    console.log(email,password);
+  }
   return (
     <>
       <h3 className="auth__title">Login</h3>
-      <form>
+      <form onSubmit={handleLogin} >
         <input
           className="auth__input"
           placeholder="Email"
           type="text"
           name="email"
+          value={email}
+          onChange={hanndleForm}
         />
         <input
           className="auth__input"
           placeholder="Password"
           type="text"
-          name="pass"
+          name="password"
+          value={password}
+          onChange={hanndleForm}
         />
         <button className="btn btn-primary btn-block" type="submit">
           Ingresar
