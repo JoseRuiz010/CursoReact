@@ -3,12 +3,7 @@ import { Link } from "react-router-dom";
 import { UseForm } from "../../customHooks/UseForm";
 import validator from "validator";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  removeError,
-  setError,
-  loginStart,
-  loginFinish,
-} from "../../action/ui";
+import { removeError, setError, loginStart } from "../../action/ui";
 import { starREgister } from "../../action/auth";
 import { auth } from "../../firebase/firebase-config";
 
@@ -25,7 +20,7 @@ export const RegisterScreen = () => {
   console.log(state);
 
   const [form, hanndleForm] = UseForm(initialState);
-  const { loading, msgError } = state.ui;
+  const { loading } = state.ui;
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isFormValid()) {
