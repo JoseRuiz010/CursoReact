@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { UseForm } from "../../customHooks/UseForm";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { googleLogin, starLogin } from "../../action/auth";
+import { loginStart } from "../../action/ui";
 export const Login = () => {
   const dispatch = useDispatch();
-
+  const { loading } = useSelector((state) => state.ui);
   const [form, hanndleForm] = UseForm({
     email: "jose@gmail.com",
     password: "12345",
@@ -17,6 +18,7 @@ export const Login = () => {
     e.preventDefault();
     console.log(email, password);
     dispatch(starLogin(email, password));
+    dispatch(loginStart());
   };
 
   const handleGoogleLogin = () => {
@@ -43,9 +45,16 @@ export const Login = () => {
           value={password}
           onChange={hanndleForm}
         />
-        <button className="btn btn-primary btn-block" type="submit">
-          Ingresar
-        </button>
+
+        {
+          <button
+            className="btn btn-primary btn-block"
+            disabled={loading}
+            type="submit"
+          >
+            Ingresar
+          </button>
+        }
 
         <hr></hr>
         <div className="auth__social-network">

@@ -2,6 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { UseForm } from "../../customHooks/UseForm";
 import validator from "validator";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  removeError,
+  setError,
+  loginStart,
+  loginFinish,
+} from "../../action/ui";
+import { starREgister } from "../../action/auth";
+import { auth } from "../../firebase/firebase-config";
 
 export const RegisterScreen = () => {
   const initialState = {
@@ -10,33 +19,46 @@ export const RegisterScreen = () => {
     password: "1234",
     password2: "1234",
   };
+  const dispatch = useDispatch();
+
+  const state = useSelector((state) => state);
+  console.log(state);
+
   const [form, hanndleForm] = UseForm(initialState);
+  const { loading, msgError } = state.ui;
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isFormValid()) {
-      console.log("Formulario Correcto");
-      
+      dispatch(loginStart());
+      dispatch(starREgister(auth, form.email, form.password, form.name));
     }
-    console.log(form);
+    //console.log(form);
   };
   const isFormValid = () => {
     if (form.name.trim().length === 0) {
-      console.log("Name is Required");
+      dispatch(setError("Name is Required"));
+
       return false;
     } else if (!validator.isEmail(form.email)) {
-      console.log("Email is not valid");
+      dispatch(setError("Email is not valid"));
+      // console.log("Email is not valid");
       return false;
     } else if (form.password !== form.password2 || form.password.length < 3) {
-      console.log("Pass is not valid");
+      dispatch(setError("Pass is not valid"));
+      //  console.log("Pass is not valid");
       return false;
     }
+    dispatch(removeError());
     return true;
   };
   return (
     <>
       <h3 className="auth__title">Register</h3>
       <form onSubmit={handleSubmit}>
-        <div className="auth__error">Hola</div>
+        {state.ui.msgError && (
+          <div className="auth__error">{state.ui.msgError}</div>
+        )}
+
         <input
           className="auth__input"
           placeholder="Name"
@@ -69,9 +91,15 @@ export const RegisterScreen = () => {
           value={form.password2}
           onChange={hanndleForm}
         />
-        <button className="btn btn-primary btn-block" type="submit">
-          Registrar
-        </button>
+        {
+          <button
+            className="btn btn-primary btn-block "
+            disabled={loading}
+            type="submit"
+          >
+            Registrar
+          </button>
+        }
 
         <hr></hr>
 
